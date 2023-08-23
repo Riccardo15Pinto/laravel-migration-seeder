@@ -15,11 +15,31 @@
 
 </head>
 
-<body>
+<body class="bg-primary-subtle">
 
-    <main class="bg-light">
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">El Trenos Hermanos</a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Treni</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Biglietti</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
 
-        <div class="container">
+        <div class="container my-4">
 
             <table class="table table-dark table-striped">
 
@@ -52,7 +72,8 @@
                             <td>{{ $train->arrival_time }}</td>
                             <td>{{ $train->pnr }}</td>
                             <td>{{ $train->train_carriage }}</td>
-                            <td>{{ $train->isinTime() }}</td>
+                            <td class="@if ($train->in_time) text-success @else text-warning @endif">
+                                {{ $train->isinTime() }}</td>
                             <td class="text-danger">{{ $train->isDeleted() }}</td>
                         </tr>
                     @endforeach
