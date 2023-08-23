@@ -11,8 +11,8 @@ class Train extends Model
 
     public function isInTime()
     {
-
-        $timing = !$this->in_time ? 'In Ritardo' : 'In Orario';
+        if (!$this->deleted) $timing = '';
+        else $timing = !$this->in_time ? 'In Ritardo' : 'In Orario';
 
         return $timing;
     }
