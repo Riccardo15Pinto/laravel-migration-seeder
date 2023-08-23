@@ -18,7 +18,14 @@
 <body>
 
     <main class="bg-light">
-        <h1>ciao , {{ $test }}</h1>
+        <ul>
+
+            @foreach ($trains as $train)
+                <li>
+                    {{ $train->company }}
+                </li>
+            @endforeach
+        </ul>
     </main>
 
 </body>
